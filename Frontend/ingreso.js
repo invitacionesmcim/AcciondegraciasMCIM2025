@@ -1,4 +1,4 @@
-const URLApp= 'https://script.google.com/macros/s/AKfycbwob0FufTBBlvYzicMAfD2qHIUJ2fkFuk38flc8U6uFva4IweYrw1iqSAxUT63p2S16zw/exec'
+const URLApp= 'https://script.google.com/macros/s/AKfycbxdGyDMLzAP_003a250RcH8TJerYt1u4W5iFBe7ycFhqM9ltScFvTK-bHRrv_AXFTGnGQ/exec'
 
 const params = new URLSearchParams(window.location.search);
 const idPersona = params.get("id");
@@ -24,7 +24,12 @@ buscarTexto(des(idPersona,p)).then(res => {
       SI.style.display = "flex";
       NO.style.display = "none";
       Veri.style.display = "none";
-      SI.innerHTML= "Bienvenid@ " + nombrePersona + "<br> ✅";
+      if(res.registrado){
+      SI.innerHTML= "Upss... <br> Parece que " + nombrePersona + " ya ingresó. <br> ❌";
+      }
+      else{
+        SI.innerHTML= "Bienvenid@ " + nombrePersona + "<br> ✅";
+      }
 
 
   } else {
