@@ -6,6 +6,7 @@ const nombrePersona = params.get("nombre");
 console.log(idPersona); // "ABC123"
 const SI = document.getElementById("si");
 const NO = document.getElementById("no");
+const Veri = document.getElementById("veri");
   const p = 20;
 
 async function buscarTexto(texto) {
@@ -22,12 +23,14 @@ buscarTexto(des(idPersona,p)).then(res => {
     console.log("Texto encontrado en la fila:", res.fila);
       SI.style.display = "flex";
       NO.style.display = "none";
+      Veri.style.display = "none";
       SI.innerHTML= "Bienvenid@ " + nombrePersona + "<br> ✅";
 
 
   } else {
       SI.style.display = "none";
       NO.style.display = "flex";
+      Veri.style.display = "none";
       NO.innerHTML= "Su Id no se encuentra en la lista."+ "<br> ❌";
 
   }
