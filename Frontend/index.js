@@ -10,7 +10,7 @@
   const p = 20;
 
   // const URLbase ="http://192.168.1.15:5500/Frontend/ingreso.html?id="; //Desarrollo
-  const URLbase ="https://invitadosgalamcim2025.netlify.app/frontend/ingreso.html?id=";
+  const URLbase ="https://invitadosgalamcim2025.netlify.app/ingreso.html?id=";
 
    function cif(texto, clave) {
       const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
