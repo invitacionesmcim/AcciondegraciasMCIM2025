@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css"></link>
+    <title>Invitación gala MCIM 2025</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Invitación a la Gala MCIM 2025</h1>
+        </header>
+        <main>
+            <section class="invitacion-mensaje">
+                <h2>Felicidades!!</h2>
+                <p>Nos complace invitarte a la Gala MCIM que se celebrará el próximo 16 de diciembre de 2025</p>
+                <p>Será una noche para recordar y honrar el trabajo realizado este año.</p>
+                <p>Por favor, confirma tu asistencia llenando la siguiente información.</p>
+            </section>
+            <section>
+                <div class="invitacion-form">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="id">Número de documento:</label>
+                    <input type="text" id="id" name="id" required>
+
+                    <br>
+                    <br>
+
+                    <button onclick="generarQR()">Confirmar Asistencia</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Misión Carismática Internaciónal Mosquera (MCIM).</p>
+        </footer>
+
+        <div id="modal">
+            <div class="modal-content">
+                <h2 id="modal-gracias"></h2>
+                
+                <h2> Este es tu ticket de ingreso, no olvides presentarlo en la entrada.</h2>                
+                
+                <div id="preview">
+                    <div id="qrcode"></div>
+                    <div>
+                        <button id="downloadBtn">Descargar Ticket</button>
+                    </div>
+                                            <br>
+                        <small id="info">Introduce texto para generar el QR.</small>
+                </div>
+                
+                <p>Recuerda que este ticket es válido unicamente para tí.</p>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Librería QRCode.js (liviana, cliente) -->
+    <script src="qr.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.js"></script>
+    <script>qrcode.stringToBytes = qrcode.utf8StringToBytes</script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</body>
+</html>

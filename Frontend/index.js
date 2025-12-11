@@ -1,0 +1,1 @@
+const btnCOnfASistencia = document.querySelector("button[type='submit']");
