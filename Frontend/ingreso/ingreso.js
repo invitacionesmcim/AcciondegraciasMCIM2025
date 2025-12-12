@@ -1,19 +1,33 @@
-const URLApp= 'https://script.google.com/macros/s/AKfycbxdGyDMLzAP_003a250RcH8TJerYt1u4W5iFBe7ycFhqM9ltScFvTK-bHRrv_AXFTGnGQ/exec'
+const URLApp= 'https://script.google.com/macros/s/AKfycbzXQpEHVhWKse2EXk0Jv-bfxh-gbo7ADufE3UWM_uC6pMjp0jNfjar2aR19ptcNUOPUAA/exec'
 
 const params = new URLSearchParams(window.location.search);
 const idPersona = params.get("id");
 const nombrePersona = params.get("nombre");
 console.log(idPersona); // "ABC123"
-const SI = document.getElementById("si");
-const NO = document.getElementById("no");
-const Veri = document.getElementById("veri");
+let SI = document.getElementById("si");
+let NO = document.getElementById("no");
+let Veri = document.getElementById("veri");
+let Info = document.getElementById("info");
   const p = 20;
 
 async function buscarTexto(texto) {
-  const url = URLApp + "?texto=" + encodeURIComponent(texto);
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
+
+// const fechaObjetivo = new Date("2025-12-16T18:20:00"); // Fecha real
+const fechaObjetivo = new Date("2025-11-16T18:20:00"); //Pruebas
+const ahora = new Date();
+
+  if (ahora < fechaObjetivo) {
+      SI.style.display = "none";
+      NO.style.display = "none";
+      Veri.style.display = "none";
+      Info.style.display = "flex";
+  } else {
+      const url = URLApp + "?texto=" + encodeURIComponent(texto);
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+  }
+
 }
 
 
@@ -24,11 +38,12 @@ buscarTexto(des(idPersona,p)).then(res => {
       SI.style.display = "flex";
       NO.style.display = "none";
       Veri.style.display = "none";
+      Info.style.display = "none";
       if(res.registrado){
-      SI.innerHTML= "Upss... <br> Parece que " + nombrePersona + " ya ingresó. <br> ❌";
+        SI.innerHTML= "<p>Upss... <br> Parece que " + nombrePersona + " ya ingresó. <br> ❌ </p>";
       }
       else{
-        SI.innerHTML= "Bienvenid@ " + nombrePersona + "<br> ✅";
+        SI.innerHTML= "<p> Bienvenid@ " + nombrePersona + "<br> ✅ </p>";
       }
 
 
@@ -36,7 +51,8 @@ buscarTexto(des(idPersona,p)).then(res => {
       SI.style.display = "none";
       NO.style.display = "flex";
       Veri.style.display = "none";
-      NO.innerHTML= "Su Id no se encuentra en la lista."+ "<br> ❌";
+      NO.innerHTML= "<p> No se encuentra en la lista."+ "<br> ❌ </p>";
+      Info.style.display = "none";
 
   }
 });
