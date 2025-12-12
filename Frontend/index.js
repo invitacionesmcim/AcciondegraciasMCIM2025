@@ -37,13 +37,14 @@
 
 
 
-const URLApp= 'https://script.google.com/macros/s/AKfycbzXQpEHVhWKse2EXk0Jv-bfxh-gbo7ADufE3UWM_uC6pMjp0jNfjar2aR19ptcNUOPUAA/exec';
+const URLApp= 'https://script.google.com/macros/s/AKfycbwlyOfenm6w7ZX4YKQApeKSJmSrHMke9VRqFc0JPZTw8qaEAhsXrHBJ9_9vIjinkvS_6w/exec';
 const modalContent = document.getElementById("modal-content");
 const modalNoRegistrado = document.getElementById("modal-noregistrado");
 const modalVerificando = document.getElementById("modal-verificando");
+const modo = "consulta";
 
 async function buscarTexto(texto) {
-  const url = URLApp + "?texto=" + encodeURIComponent(texto);
+  const url = URLApp + "?texto=" + encodeURIComponent(texto, modo);
   const res = await fetch(url);
   const data = await res.json();
    

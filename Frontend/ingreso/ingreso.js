@@ -1,4 +1,4 @@
-const URLApp= 'https://script.google.com/macros/s/AKfycbzXQpEHVhWKse2EXk0Jv-bfxh-gbo7ADufE3UWM_uC6pMjp0jNfjar2aR19ptcNUOPUAA/exec'
+const URLApp= 'https://script.google.com/macros/s/AKfycbwlyOfenm6w7ZX4YKQApeKSJmSrHMke9VRqFc0JPZTw8qaEAhsXrHBJ9_9vIjinkvS_6w/exec'
 
 const params = new URLSearchParams(window.location.search);
 const idPersona = params.get("id");
@@ -22,7 +22,8 @@ const ahora = new Date();
       Veri.style.display = "none";
       Info.style.display = "flex";
   } else {
-      const url = URLApp + "?texto=" + encodeURIComponent(texto);
+      const modo = "ingreso";
+      const url = URLApp + "?texto=" + encodeURIComponent(texto, modo);
       const res = await fetch(url);
       const data = await res.json();
       return data;
