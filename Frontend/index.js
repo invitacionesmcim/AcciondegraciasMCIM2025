@@ -44,7 +44,7 @@ const modalVerificando = document.getElementById("modal-verificando");
 const modo = "consulta";
 
 async function buscarTexto(texto) {
-  const url = URLApp + "?texto=" + encodeURIComponent(texto, modo);
+      const url = URLApp + "?texto=" + encodeURIComponent(texto) + "&modo=" + encodeURIComponent(modo);
   const res = await fetch(url);
   const data = await res.json();
    

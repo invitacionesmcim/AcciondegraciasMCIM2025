@@ -23,7 +23,7 @@ const ahora = new Date();
       Info.style.display = "flex";
   } else {
       const modo = "ingreso";
-      const url = URLApp + "?texto=" + encodeURIComponent(texto, modo);
+      const url = URLApp + "?texto=" + encodeURIComponent(texto) + "&modo=" + encodeURIComponent(modo);
       const res = await fetch(url);
       const data = await res.json();
       return data;
