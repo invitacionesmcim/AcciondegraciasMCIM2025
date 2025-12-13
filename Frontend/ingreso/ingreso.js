@@ -1,4 +1,9 @@
-const URLApp= 'https://script.google.com/macros/s/AKfycbwlyOfenm6w7ZX4YKQApeKSJmSrHMke9VRqFc0JPZTw8qaEAhsXrHBJ9_9vIjinkvS_6w/exec'
+  //Pruebas
+  // const URLApp= 'https://script.google.com/macros/s/AKfycbysppGcvXfwGPSgmFTz02tIb3WeQFj6_6Lnhj76ODalm3WVSvvdiwzhggOOjQ2padvTyA/exec';
+  //REAL
+  const URLApp= 'https://script.google.com/macros/s/AKfycbzUZLug25QLqJofzZvEyZMhnZ0X_eI-fh-S8loUVV4Q3EongqCXKd5BXM0HUgNsPIlOVQ/exec';
+  
+  
 
 const params = new URLSearchParams(window.location.search);
 const idPersona = params.get("id");
@@ -8,73 +13,98 @@ let SI = document.getElementById("si");
 let NO = document.getElementById("no");
 let Veri = document.getElementById("veri");
 let Info = document.getElementById("info");
-  const p = 20;
+let Lugar = document.getElementById("lugar");
+const FechaObjetivo = new Date("2025-11-18T18:20:00"); //Pruebas
+const Ahora = new Date();
 
-async function buscarTexto(texto) {
+const p = 20;
 
-// const fechaObjetivo = new Date("2025-12-16T18:20:00"); // Fecha real
-const fechaObjetivo = new Date("2025-11-16T18:20:00"); //Pruebas
-const ahora = new Date();
+async function Ingresar(lugar) {
+  // const fechaObjetivo = new Date("2025-12-18T18:20:00"); // Fecha real
 
-  if (ahora < fechaObjetivo) {
-      SI.style.display = "none";
-      NO.style.display = "none";
-      Veri.style.display = "none";
-      Info.style.display = "flex";
-  } else {
-      const modo = "ingreso";
-      const url = URLApp + "?texto=" + encodeURIComponent(texto) + "&modo=" + encodeURIComponent(modo);
-      const res = await fetch(url);
-      const data = await res.json();
-      return data;
-  }
+  Lugar.style.display = "none";
+  Veri.style.display = "flex";
 
-}
+  const idDes = des(idPersona, p);
 
+  const modo = "ingreso";
 
+  const url =
+    URLApp +    "?texto=" +    encodeURIComponent(idDes) +    "&modo=" +    encodeURIComponent(modo) +    "&lugar=" +    encodeURIComponent(lugar);
+  const res = await fetch(url);
+  const data = await res.json();
 
-buscarTexto(des(idPersona,p)).then(res => {
-  if (res.encontrado) {
-    console.log("Texto encontrado en la fila:", res.fila);
-      SI.style.display = "flex";
-      NO.style.display = "none";
-      Veri.style.display = "none";
-      Info.style.display = "none";
-      if(res.registrado){
-        SI.innerHTML= "<p>Upss... <br> Parece que " + nombrePersona + " ya ingresó. <br> ❌ </p>";
-      }
-      else{
-        SI.innerHTML= "<p> Bienvenid@ " + nombrePersona + "<br> ✅ </p>";
-      }
+  if (data.encontrado) {
+    // console.log("Texto encontrado en la fila:", data.fila);
+    SI.style.display = "flex";
+    NO.style.display = "none";
+    Veri.style.display = "none";
+    Info.style.display = "none";
 
-
-  } else {
-      SI.style.display = "none";
-      NO.style.display = "flex";
-      Veri.style.display = "none";
-      NO.innerHTML= "<p> No se encuentra en la lista."+ "<br> ❌ </p>";
-      Info.style.display = "none";
-
-  }
-});
-
-
- function des(texto, clave) {
-    const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const largo = alfabeto.length;
-    let resultado = "";
-
-    for (let i = 0; i < texto.length; i++) {
-      const char = texto[i];
-      const index = alfabeto.indexOf(char);
-
-      if (index !== -1) {
-        const nuevoIndex = (index - clave + largo) % largo;
-        resultado += alfabeto[nuevoIndex];
+    if (lugar == "bodega") {
+      if (data.registradoBodega) {
+        SI.innerHTML = "<p>Upss... <br> Parece que " +   nombrePersona + " ya ingresó a la bodega. <br> ❌ </p>";
       } else {
-        resultado += char;
+        if(data.genero === "FEMENINO"){SI.innerHTML = "<p> Bienvenida " + nombrePersona + "<br> ✅ </p>";} 
+        else if(data.genero === "MASCULINO"){SI.innerHTML = "<p> Bienvenido " + nombrePersona + "<br> ✅ </p>";} 
+        else{SI.innerHTML = "<p> Bienvenido " + nombrePersona + "<br> ✅ </p>";} 
       }
     }
 
-    return resultado;
+    if (lugar == "iglesia") {
+      if (data.registradoIglesia) {
+        SI.innerHTML =
+          "<p>Upss... <br> Parece que " +
+          nombrePersona +
+          " ya ingresó a la iglesia. <br> ❌ </p>";
+      } else {
+        if(data.genero === "FEMENINO"){SI.innerHTML = "<p> Bienvenida " + nombrePersona + "<br> ✅ </p>";} 
+        else if(data.genero === "MASCULINO"){SI.innerHTML = "<p> Bienvenido " + nombrePersona + "<br> ✅ </p>";} 
+        else{SI.innerHTML = "<p> Bienvenido " + nombrePersona + "<br> ✅ </p>";} 
+      }
+    }
+  } else {
+    SI.style.display = "none";
+    NO.style.display = "flex";
+    Veri.style.display = "none";
+    NO.innerHTML = "<p> No se encuentra en la lista." + "<br> ❌ </p>";
+    Info.style.display = "none";
   }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (Ahora < FechaObjetivo) {
+    SI.style.display = "none";
+    NO.style.display = "none";
+    Veri.style.display = "none";
+    Lugar.style.display = "none";
+    Info.style.display = "flex";
+  } else {
+    SI.style.display = "none";
+    NO.style.display = "none";
+    Veri.style.display = "none";
+    Lugar.style.display = "flex";
+    Info.style.display = "none";
+  }
+});
+
+function des(texto, clave) {
+  const alfabeto =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const largo = alfabeto.length;
+  let resultado = "";
+
+  for (let i = 0; i < texto.length; i++) {
+    const char = texto[i];
+    const index = alfabeto.indexOf(char);
+
+    if (index !== -1) {
+      const nuevoIndex = (index - clave + largo) % largo;
+      resultado += alfabeto[nuevoIndex];
+    } else {
+      resultado += char;
+    }
+  }
+
+  return resultado;
+}

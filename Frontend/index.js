@@ -9,8 +9,8 @@
   let primerNombre = '';
   const p = 20;
 
-  // const URLbase ="http://192.168.1.15:5500/Frontend/ingreso/ingreso.html?id="; //Desarrollo
-  const URLbase ="https://invitadosgalamcim2025.netlify.app/ingreso/ingreso.html?id=";
+  const URLbase ="http://192.168.1.15:5500/Frontend/ingreso/ingreso.html?id="; //Desarrollo
+  // const URLbase ="https://invitadosgalamcim2025.netlify.app/ingreso/ingreso.html?id=";
 
    function cif(texto, clave) {
       const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -36,15 +36,20 @@
 
 
 
-
-const URLApp= 'https://script.google.com/macros/s/AKfycbwlyOfenm6w7ZX4YKQApeKSJmSrHMke9VRqFc0JPZTw8qaEAhsXrHBJ9_9vIjinkvS_6w/exec';
-const modalContent = document.getElementById("modal-content");
+  //Pruebas
+  // const URLApp= 'https://script.google.com/macros/s/AKfycbysppGcvXfwGPSgmFTz02tIb3WeQFj6_6Lnhj76ODalm3WVSvvdiwzhggOOjQ2padvTyA/exec';
+  //REAL
+  const URLApp= 'https://script.google.com/macros/s/AKfycbzUZLug25QLqJofzZvEyZMhnZ0X_eI-fh-S8loUVV4Q3EongqCXKd5BXM0HUgNsPIlOVQ/exec';
+  
+  
+  const modalContent = document.getElementById("modal-content");
 const modalNoRegistrado = document.getElementById("modal-noregistrado");
 const modalVerificando = document.getElementById("modal-verificando");
 const modo = "consulta";
+const lugar= "casa";
 
-async function buscarTexto(texto) {
-      const url = URLApp + "?texto=" + encodeURIComponent(texto) + "&modo=" + encodeURIComponent(modo);
+async function Ingresar(texto) {
+      const url = URLApp + "?texto=" + encodeURIComponent(texto) + "&modo=" + encodeURIComponent(modo)+"&lugar=" + encodeURIComponent(lugar);
   const res = await fetch(url);
   const data = await res.json();
    
@@ -81,7 +86,7 @@ async function buscarTexto(texto) {
     }
 
 
-    buscarTexto(text);
+    Ingresar(text);
 
     downloadBtn.disabled = true;
 
