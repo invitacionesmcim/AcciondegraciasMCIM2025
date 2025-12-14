@@ -14,13 +14,16 @@ let NO = document.getElementById("no");
 let Veri = document.getElementById("veri");
 let Info = document.getElementById("info");
 let Lugar = document.getElementById("lugar");
-const FechaObjetivo = new Date("2025-11-18T18:20:00"); //Pruebas
+
+// const FechaObjetivo = new Date("2025-11-18T18:20:00"); //Pruebas 
+const fechaObjetivo = new Date("2025-11-18T18:20:00"); // Fecha real
 const Ahora = new Date();
+
+
 
 const p = 20;
 
 async function Ingresar(lugar) {
-  // const fechaObjetivo = new Date("2025-12-18T18:20:00"); // Fecha real
 
   Lugar.style.display = "none";
   Veri.style.display = "flex";
@@ -43,7 +46,7 @@ async function Ingresar(lugar) {
 
     if (lugar == "bodega") {
       if (data.registradoBodega) {
-        SI.innerHTML = "<p>Upss... <br> Parece que " +   nombrePersona + " ya ingresó a la bodega. <br> ❌ </p>";
+        SI.innerHTML = "<p>Upss... <br> Parece que " +   nombrePersona + " ya ingresó a EF. <br> ❌ </p>";
       } else {
         if(data.genero === "FEMENINO"){SI.innerHTML = "<p> Bienvenida " + nombrePersona + "<br> ✅ </p>";} 
         else if(data.genero === "MASCULINO"){SI.innerHTML = "<p> Bienvenido " + nombrePersona + "<br> ✅ </p>";} 
@@ -72,21 +75,6 @@ async function Ingresar(lugar) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  if (Ahora < FechaObjetivo) {
-    SI.style.display = "none";
-    NO.style.display = "none";
-    Veri.style.display = "none";
-    Lugar.style.display = "none";
-    Info.style.display = "flex";
-  } else {
-    SI.style.display = "none";
-    NO.style.display = "none";
-    Veri.style.display = "none";
-    Lugar.style.display = "flex";
-    Info.style.display = "none";
-  }
-});
 
 function des(texto, clave) {
   const alfabeto =
@@ -108,3 +96,26 @@ function des(texto, clave) {
 
   return resultado;
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  iniciar();
+});
+
+function iniciar() {
+  if (Ahora < fechaObjetivo) {
+    SI.style.display = "none";
+    NO.style.display = "none";
+    Veri.style.display = "none";
+    Lugar.style.display = "none";
+    Info.style.display = "flex";
+  } else {
+    SI.style.display = "none";
+    NO.style.display = "none";
+    Veri.style.display = "none";
+    Lugar.style.display = "flex";
+    Info.style.display = "none";
+  }
+}
+
+
