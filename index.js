@@ -14,7 +14,7 @@
   //Proyecto pruebaa
   // const URLbase ="https://invitadosgalamcim2025.netlify.app/ingreso/ingreso.html?id=";
   //Real
-  const URLbase ="https://acciondegraciasmcim.online/ingreso/ingreso.html?id=";
+  const URLbase ="https://invitacionesmcim.github.io/AcciondegraciasMCIM2025/ingreso/ingreso.html?id=";
   
 
 
