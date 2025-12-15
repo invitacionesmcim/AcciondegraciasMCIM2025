@@ -137,19 +137,21 @@ button {
 
   .invitacion-mensaje {
     width: 100vw;
+    height: 80%;
+
 
 
     display:block;
 
-    position:absolute;
-    top: 0px;
-
+    position:fixed;
+    overflow-y: scroll;
+    top: 10%;
 
     text-align: center;
     color: black;
     font-family: var(--font-AbhayaLibre);
 
-    font-size: 18px;
+    font-size: 22px;
 
     justify-content: center;
     align-items: center;
@@ -457,8 +459,9 @@ button {
 
     display:block;
 
-    position:absolute;
-    top: 0px;
+    position:fixed;
+    overflow-y: scroll;
+    top: 5%;
 
 
     text-align: center;
@@ -742,8 +745,8 @@ button {
   .container {
     width: 100vw;
     height: 100vh;
-    padding: 0%;
-    margin: 0%;
+    padding: 0rem;
+    margin: 0rem;
 
     position: absolute;
     top: 0px;
@@ -754,22 +757,21 @@ button {
     justify-content: center;
     align-content: center;
     justify-items: center;
-    
-    /* overflow-y: hidden; */
-    
+
 
   }
 
   .invitacion-mensaje {
     width: 100vw;
-    height: 90%;
+    height: 88%;
 
 
 
     display:block;
 
-    position:absolute;
-    top: 0px;
+    position:fixed;
+    overflow-y: scroll;
+    top: 6%;
 
 
     text-align: center;
@@ -840,7 +842,7 @@ button {
       color: black;
       font-family: "AbhayaLibre", serif;
 
-      padding-inline: 2.5rem;
+      padding-inline: 1rem;
         margin-bottom: 1rem;
 
       label {

@@ -6,6 +6,9 @@ const Frame = document.getElementById("frame");
 if(vAnchoReal<vAltoReal){
   Frame.src ="./images/miframeV.webp";
 }
+else{
+  Frame.src ="./images/miframeH.webp"
+}
 
 
 
