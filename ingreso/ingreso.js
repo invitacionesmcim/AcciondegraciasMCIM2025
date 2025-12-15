@@ -16,7 +16,7 @@ let Info = document.getElementById("info");
 let Lugar = document.getElementById("lugar");
 
 // const FechaObjetivo = new Date("2025-11-18T18:20:00"); //Pruebas 
-const fechaObjetivo = new Date("2025-11-18T18:20:00"); // Fecha real
+const fechaObjetivo = new Date("2025-12-18T18:20:00"); // Fecha real
 const Ahora = new Date();
 
 
