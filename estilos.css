@@ -620,9 +620,9 @@ button {
     justify-content: center;
     align-content: center;
     justify-items: center;
-
+    
     /* overflow-y: hidden; */
-
+    
     .frame {
       position: fixed;
       width: 100vw;
@@ -630,6 +630,8 @@ button {
       top: 0;
       left: 0;
       z-index: -1;
+      margin: 0px;
+      padding: 0px;
     }
   }
 
@@ -651,7 +653,7 @@ button {
     justify-content: center;
     align-items: center;
 
-    padding-inline: 3rem;
+    padding-inline: 4rem;
 
     img {
       width: 35%;
