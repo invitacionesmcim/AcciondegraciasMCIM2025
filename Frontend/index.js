@@ -17,6 +17,7 @@
   const URLbase ="https://acciondegraciasmcim.online/ingreso/ingreso.html?id=";
   
 
+
    function cif(texto, clave) {
       const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
       const largo = alfabeto.length;
