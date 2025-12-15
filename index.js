@@ -10,11 +10,10 @@
   const p = 20;
 
   //Local
-  // const URLbase ="http://192.168.1.15:5500/Frontend/ingreso/ingreso.html?id="; //Desarrollo
+  const URLbase ="http://192.168.1.15:5500/Frontend/ingreso/ingreso.html?id="; //Desarrollo
   //Proyecto pruebaa
   // const URLbase ="https://invitadosgalamcim2025.netlify.app/ingreso/ingreso.html?id=";
   //Real
-  const URLbase ="https://acciondegraciasmcim.online/ingreso/ingreso.html?id=";
   
 
    function cif(texto, clave) {
