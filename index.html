@@ -10,74 +10,107 @@
 
 </head>
 <body>
-    <div class="container">
-        <img class="frame" src="./images/miframeV.webp" alt="">
+    <div class="container" >
+        <img id="frame" class="frame" src="./images/miframeV.webp" alt="">
         <div class="invitacion-mensaje">
-            <img src="./images/titulo.webp" alt="">
-            <p>
-                Durante todo este tiempo, Dios ha sido muy  bueno con nosotros. Hemos visto Su guía en cada paso, acompañándonos en los retos, las conquistas y los desafíos que marcaron este 2025.
-                Nada de esto habría sido posible sin Su gracia y amor por esta casa, pero también sin la entrega, la fidelidad y el corazón de personas como tú, que hacen parte de esta historia.
-                Por eso, queremos invitarte a ser parte de una noche muy especial, donde juntos nos reuniremos para celebrar y honrar a Dios, el autor de todos nuestros sueños cumplidos. 
-                Anhelamos contar contigo para dar gracias, celebrar como familia y reconocer todo lo que Él ha hecho en nuestra casa.
-            </p>
-            <br>
-            <p>
-                A continuación encontrarás algunos requisitos para nuestra Noche de Gala: 
+            <div id="inicio">
 
-            </p>
-
-            <div class="requisitos">
-
-<p> <b>Dress code:</b>
- <br>
-Este día es muy especial, por lo que te invitamos a asistir con vestimenta de gala:
-<br>
-<b>Mujeres:</b> vestido largo
-<br>
-<b>Hombres:</b> traje formal con corbata.
-</p>
-
-<p>
-<b>Meet & Greet:</b>
-<br>
- Antes de dar inicio a la reunión, tendremos un espacio especial para saludarnos, compartir y tomarnos fotografías juntos.
- <br>
- ✔  Hora y lugar: 6:30 p. m. en Escuela de Formación.
- </p>
- <p>
-
-     <b>Importante: Este día, NO se permite el ingreso de niños y NO contaremos con zona kids.</b>
-    </p>
-
-    <p>
-
-        <b>Confirmación de asistencia</b>
-        <br>
-        Para el ingreso al evento, será indispensable presentar el código de confirmación, por lo que agradecemos realizar este proceso con anticipación.
-    </p>
-
+                <img id="logo" src="./images/logo.png" alt="">
+                <img id="noche" src="./images/Noche.png" alt="">
             </div>
+            <div id="sec1">
+                <p>
+                    Durante todo este tiempo, Dios ha sido muy  bueno con nosotros. Hemos visto Su guía en cada paso, acompañándonos en los retos, las conquistas y los desafíos que marcaron este 2025.
+                    <br><br>
+                    Nada de esto habría sido posible sin Su gracia y amor por esta casa, pero también sin la entrega, la fidelidad y el corazón de personas como tú, que hacen parte de esta historia.
+                    <br><br>
+                    Por eso, <b>queremos invitarte a ser parte de una noche muy especial, </b> donde juntos nos reuniremos para celebrar y honrar a Dios, el autor de todos nuestros sueños cumplidos. 
+                    Anhelamos contar contigo para dar gracias, celebrar como familia y reconocer todo lo que Él ha hecho en nuestra casa.
+                </p>
+                <br>
+    
+                
+            </div>
+            <div class="linea"></div>
 
-<br>
-           
 
-            <p class="cursiva">Con amor, <br>
-Pastores Julián y Fanny</p>
+            <div id="sec2">
 
-<br>
-            
-            <p> Por favor confirma tu asistencia llenando los siguientes datos.</p>
+                <p>
+                    <b>
+                        A continuación encontrarás algunos requisitos para nuestra Noche de Gala: 
+                    </b>
+                </p>
+                
+                    
+                    <p>
+                        
+                        <img id="titulo-dress" src="./images/dress.png" alt="">
+                        <br>
+                        Este día es muy especial, por lo que te invitamos a asistir con vestimenta de gala:
+                        <br>
+                        <br>
+                        <b>Mujeres:</b> vestido largo
+                        <br>
+                        <b>Hombres:</b> traje formal con corbata.
+                    </p>
+                    
+                    <br>
+                    <p>
+                        <img id="titulo-meet" src="./images/Meet.png" alt="">    
+                            <br>
+                            Antes de dar inicio a la reunión, tendremos un espacio especial para saludarnos, compartir y tomarnos fotografías juntos.
+                            <br>
+                            <br><br>
+                            <b style="font-size: 20px;">
+                                6:30 p. m.
+                              
+                                <br>
+                                Escuela de Formación.
+                            </b>
+                        </p>
 
-            <div class="invitacion-form">
-                <label for="name">Nombre Completo:</label>
-                <input type="text" id="name" name="name" required>
+                        <br>
+                        <p>
+                            
+                            <b>IMPORTANTE: 
+                                <br>
+                                Este día, NO se permite el ingreso de niños y NO contaremos con zona kids.</b>
+                        </p>
 
-                <label for="id">Número de documento:</label>
-                <input type="text" id="id" name="id" required>
+                        <br>
+                        <br>
+                        
+                        <p>
+                            
+                            <b>Confirmación de asistencia</b>
+                                    <br>
+                                    Para el ingreso al evento, será indispensable presentar el código de confirmación, por lo que agradecemos realizar este proceso con anticipación.
+                                </p>
+                        
+                        <br>
+                        
+                        
+                        <p class="cursiva">Con amor, <br>
+                            Pastores Julián y Fanny</p>
+                            
+                            <br>
 
-                <button onclick="generarQR()">Confirmar Asistencia</button>
+                <p> Por favor confirma tu asistencia para recibir el código de ingreso diligenciando los siguientes datos:</p>
+                
+                <div class="invitacion-form">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="id">Número de documento:</label>
+                    <input type="text" id="id" name="id" required>
+                    
+                    <button onclick="generarQR()">Confirmar Asistencia</button>
+                </div>
+                            
             </div>
             
+        
         </div>
 
 

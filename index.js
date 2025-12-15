@@ -1,4 +1,14 @@
-  
+const vAnchoReal= window.innerWidth;
+const vAltoReal= window.innerHeight;
+
+// configuracion de estilos globales
+const Frame = document.getElementById("frame");
+if(vAnchoReal<vAltoReal){
+  Frame.src ="./images/miframeV.webp";
+}
+
+
+
 // Elementos
   const inputName = document.getElementById('name');
   const inputId = document.getElementById('id');

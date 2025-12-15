@@ -4,6 +4,18 @@
   --font-CarlaSans: "CarlaSans", sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #fff;
   margin: 0;
@@ -36,36 +48,13 @@ b {
   font-size: larger;
 }
 
-/*ACCORDION*/
-
-.accordion {
-  max-width: 600px;
-  margin: auto;
-  font-family: var(--font-AbhayaLibre);
-  border: 1px solid var(--color-cafe);
-  box-shadow: 1px 2px 3px rgba(191, 143, 55, 0.2);
+.linea{
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid var(--color-cafe);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-
-details {
-  border-bottom: 1px solid #ddd;
-  padding: 0px 0;
-}
-
-summary {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  list-style: none; /* quita el triángulo */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-details p {
-  margin: 10px 0 0 0;
-}
-
-/*ACCORDION*/
 
 button {
   display: flex;
@@ -84,11 +73,45 @@ button {
   
 }
 
+.fade {
+  overflow-y: auto;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+
+
+
+
 /* Pantalla PC*/
 @media (min-width: 1001px) {
   p {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+  }
+ .frame {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      margin: 0px;
+      padding: 0px;
   }
 
   .container {
@@ -98,34 +121,29 @@ button {
     margin: 0%;
 
     position: absolute;
-    top: 0;
+    top: 0px;
+    left: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-content: center;
     justify-items: center;
-
+    
     /* overflow-y: hidden; */
+    
 
-    .frame {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
   }
 
   .invitacion-mensaje {
-    display: block;
-    flex-direction: column;
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    width: 100vw;
+
+
+    display:block;
+
+    position:absolute;
     top: 0px;
-    overflow-y: scroll;
+
 
     text-align: center;
     color: black;
@@ -135,14 +153,59 @@ button {
 
     justify-content: center;
     align-items: center;
+    margin-inline: auto;
+    justify-items: center;
 
-    padding-inline: 8.5rem;
-    img {
-      height: 35%;
+    padding-bottom:2rem;
+    padding-inline: 8rem;
+
+    #inicio, #sec1{
+      display: block;
+      align-content: center;
+      justify-content: center;
+      height: 100vh ;
+    }
+
+     #sec2{
+      display: block;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #logo {
+      height: 15%;
       display: flex;
       align-self: center;
       margin-inline: auto;
+      margin-bottom: 1rem;
     }
+
+    #noche {
+      width: 80%;
+      display: flex;
+      align-self: center;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+    }
+
+    #titulo-dress{
+      display:flex;
+      flex-direction: column;
+      align-self: center;
+      width: 25%;
+      justify-self: center;
+    }
+    #titulo-meet{
+      display:flex;
+      justify-self: center;
+      flex-direction: column;
+      align-self: center;
+      width: 20%;
+    }
+
+
 
     .invitacion-form {
       display: flex;
@@ -150,17 +213,17 @@ button {
       color: black;
       font-family: "AbhayaLibre", serif;
 
-      padding-inline: 2.5rem;
-      align-self: center;
+      padding-inline: 4.5rem;
+      margin-bottom: 1rem;
+
       align-items: center;
       justify-content: center;
-      
-      margin-bottom: 2rem;
 
       label {
         margin-bottom: 5px;
         font-size: 17px;
         font-weight: bold;
+        text-align: left;
       }
 
       input {
@@ -170,10 +233,15 @@ button {
         border-radius: 4px;
         font-size: 16px;
         font-family: "AbhayaLibre", serif;
+        width: 500px;
+        
+      }
+
+      button {
+        margin-bottom: 3.5rem;
       }
     }
   }
-
   #modal {
     width: 100vw;
     height: 100vh;
@@ -348,6 +416,18 @@ button {
     margin-top: 0.5rem;
   }
 
+  
+ .frame {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      margin: 0px;
+      padding: 0px;
+    }
+
   .container {
     width: 100vw;
     height: 100vh;
@@ -355,34 +435,31 @@ button {
     margin: 0%;
 
     position: absolute;
-    top: 0;
+    top: 0px;
+    left: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-content: center;
     justify-items: center;
-
+    
     /* overflow-y: hidden; */
+    
 
-    .frame {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
   }
 
   .invitacion-mensaje {
-    display: block;
-    flex-direction: column;
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    width: 100vw;
+    height: 90%;
+
+
+
+    display:block;
+
+    position:absolute;
     top: 0px;
-    overflow-y: scroll;
+
 
     text-align: center;
     color: black;
@@ -392,31 +469,74 @@ button {
 
     justify-content: center;
     align-items: center;
+    margin-inline: auto;
+    justify-items: center;
 
-    padding-inline: 6rem;
+    padding-bottom:2rem;
+    padding-inline: 5rem;
 
-    img {
-      width: 35%;
+    #inicio, #sec1{
+      display: block;
+      align-content: center;
+      justify-content: center;
+      height: 100vh ;
+    }
+
+     #sec2{
+      display: block;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #logo {
+      height: 15%;
       display: flex;
       align-self: center;
       margin-inline: auto;
+      margin-bottom: 1rem;
     }
+
+    #noche {
+      width: 80%;
+      display: flex;
+      align-self: center;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+    }
+
+    #titulo-dress{
+      display:flex;
+      flex-direction: column;
+      align-self: center;
+      width: 70%;
+      justify-self: center;
+    }
+    #titulo-meet{
+      display:flex;
+      justify-self: center;
+      flex-direction: column;
+      align-self: center;
+      width: 50%;
+    }
+
+
 
     .invitacion-form {
       display: flex;
       flex-direction: column;
       color: black;
       font-family: "AbhayaLibre", serif;
-      align-items: center;
-      justify-content: center;
 
       padding-inline: 2.5rem;
-      margin-bottom: 2rem;
+        margin-bottom: 1rem;
 
       label {
         margin-bottom: 5px;
         font-size: 17px;
         font-weight: bold;
+        text-align: left;
       }
 
       input {
@@ -425,8 +545,11 @@ button {
         border: 1px solid var(--color-cafe);
         border-radius: 4px;
         font-size: 16px;
-        font-family: var(--font-AbhayaLibre);
-        width: 400px;
+        font-family: "AbhayaLibre", serif;
+      }
+
+      button {
+        margin-bottom: 3.5rem;
       }
     }
   }
@@ -605,6 +728,17 @@ button {
     margin-top: 0.5rem;
   }
 
+  .frame {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      margin: 0px;
+      padding: 0px;
+    }
+
   .container {
     width: 100vw;
     height: 100vh;
@@ -623,26 +757,20 @@ button {
     
     /* overflow-y: hidden; */
     
-    .frame {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      margin: 0px;
-      padding: 0px;
-    }
+
   }
 
   .invitacion-mensaje {
-    display: block;
-    flex-direction: column;
-    position: relative;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    width: 100vw;
+    height: 90%;
+
+
+
+    display:block;
+
+    position:absolute;
     top: 0px;
-    overflow-y: scroll;
+
 
     text-align: center;
     color: black;
@@ -652,15 +780,59 @@ button {
 
     justify-content: center;
     align-items: center;
+    margin-inline: auto;
+    justify-items: center;
 
-    padding-inline: 4rem;
 
-    img {
-      width: 35%;
+    padding-inline: 5rem;
+
+    #inicio, #sec1{
+      display: block;
+      align-content: center;
+      justify-content: center;
+      height: 100vh ;
+    }
+
+     #sec2{
+      display: block;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #logo {
+      height: 15%;
       display: flex;
       align-self: center;
       margin-inline: auto;
+      margin-bottom: 1rem;
     }
+
+    #noche {
+      width: 80%;
+      display: flex;
+      align-self: center;
+      margin-inline: auto;
+      margin-bottom: 2rem;
+    }
+
+    #titulo-dress{
+      display:flex;
+      flex-direction: column;
+      align-self: center;
+      width: 70%;
+      justify-self: center;
+    }
+    #titulo-meet{
+      display:flex;
+      justify-self: center;
+      flex-direction: column;
+      align-self: center;
+      width: 50%;
+    }
+
+
 
     .invitacion-form {
       display: flex;
@@ -688,7 +860,7 @@ button {
       }
 
       button {
-        margin-bottom: 0.5rem;
+        margin-bottom: 3rem;
       }
     }
   }
